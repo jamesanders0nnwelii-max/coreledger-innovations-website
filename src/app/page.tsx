@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { AnimatedHeroPhrase } from "@/components/animated-hero-phrase";
+import { AnimatedHeroHeadline } from "@/components/animated-hero-headline";
 import { ButtonLink } from "@/components/button-link";
 import { HeroVideo } from "@/components/hero-video";
 import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
@@ -43,11 +43,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <h1 className="display text-4xl font-bold leading-[1.15] text-white sm:text-5xl lg:text-6xl">
-              DeFi protocols engineered for real{" "}
-              <AnimatedHeroPhrase />
-              .
-            </h1>
+            <AnimatedHeroHeadline />
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300 sm:text-xl">
               We design and build money markets, smart contracts, and the
               applications around them for teams shipping on-chain systems.
