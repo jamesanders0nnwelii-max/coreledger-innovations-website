@@ -16,16 +16,6 @@ export const socialLinks = [
     icon: "linkedin",
   },
   {
-    label: "Twitter",
-    href: "https://twitter.com/coreledger",
-    icon: "twitter",
-  },
-  {
-    label: "Youtube",
-    href: "https://www.youtube.com/@coreledgerinnovations",
-    icon: "youtube",
-  },
-  {
     label: "Discord",
     href: "https://discord.gg/coreledger",
     icon: "discord",
@@ -39,11 +29,6 @@ export const socialLinks = [
     label: "Email",
     href: "mailto:hello@coreledger-innovations.com",
     icon: "email",
-  },
-  {
-    label: "Newsletter",
-    href: "/contact",
-    icon: "newsletter",
   },
 ] as const;
 
