@@ -165,4 +165,22 @@
       background-position: -100% 50%;
     }
   }
+
+  .role-title-scan {
+    animation: role-title-scan 2.8s ease-in-out infinite;
+  }
+
+  @keyframes role-title-scan {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0.35;
+    }
+    40% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0.35;
+    }
+  }
 }

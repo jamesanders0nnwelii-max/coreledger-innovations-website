@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { AnimatedRoleTitle } from "@/components/animated-role-title";
 import { FadeIn } from "@/components/motion";
 import { JobApplicationForm } from "@/components/job-application-form";
 import { getJob, jobs, site } from "@/lib/site";
@@ -49,9 +50,7 @@ export default async function JobPage({ params }: Props) {
             <span className="text-mist">{job.location}</span>
           </div>
 
-          <h1 className="display mt-4 text-4xl font-bold sm:text-5xl">
-            {job.title}
-          </h1>
+          <AnimatedRoleTitle title={job.title} />
           <p className="mt-5 text-lg text-mist">{job.summary}</p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
