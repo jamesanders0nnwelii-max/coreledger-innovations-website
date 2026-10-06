@@ -8,86 +8,72 @@ type Props = {
 };
 
 /**
- * Full-bleed muted looping hero background.
- * React can drop the `muted` DOM attribute on hydration, which breaks autoplay —
- * we force muted + play() after mount so the video keeps running.
+ * Hero background video rendered as raw HTML so React hydration cannot
+ * strip the `muted` attribute (a common cause of autoplay dying after load).
  */
 export function HeroVideo({ className }: Props) {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const hostRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const video = videoRef.current;
+    const host = hostRef.current;
+    if (!host) return;
+
+    const video = host.querySelector("video");
     if (!video) return;
 
-    // Critical for autoplay policies after React hydration
-    video.defaultMuted = true;
-    video.muted = true;
-    video.setAttribute("muted", "");
-    video.setAttribute("playsinline", "");
-    video.playsInline = true;
-
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motionQuery.matches) {
-      video.pause();
-      return;
-    }
 
-    let cancelled = false;
-
-    const ensurePlaying = () => {
-      if (cancelled || motionQuery.matches) return;
+    const kick = () => {
+      if (motionQuery.matches) {
+        video.pause();
+        return;
+      }
+      video.defaultMuted = true;
       video.muted = true;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          window.setTimeout(() => {
-            if (!cancelled && video.paused) {
-              video.muted = true;
-              void video.play().catch(() => undefined);
-            }
-          }, 100);
-        });
+      video.playsInline = true;
+      void video.play().catch(() => undefined);
+    };
+
+    kick();
+
+    const onPause = () => {
+      if (!motionQuery.matches && video.paused) {
+        window.setTimeout(kick, 40);
       }
     };
 
-    ensurePlaying();
-    video.addEventListener("loadeddata", ensurePlaying);
-    video.addEventListener("canplay", ensurePlaying);
-
-    const onPause = () => {
-      if (cancelled || motionQuery.matches) return;
-      window.setTimeout(ensurePlaying, 30);
-    };
     video.addEventListener("pause", onPause);
-
-    const onVisibility = () => {
-      if (document.visibilityState === "visible") ensurePlaying();
-    };
-    document.addEventListener("visibilitychange", onVisibility);
+    video.addEventListener("loadeddata", kick);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") kick();
+    });
+    window.addEventListener("focus", kick);
 
     return () => {
-      cancelled = true;
-      video.removeEventListener("loadeddata", ensurePlaying);
-      video.removeEventListener("canplay", ensurePlaying);
       video.removeEventListener("pause", onPause);
-      document.removeEventListener("visibilitychange", onVisibility);
+      video.removeEventListener("loadeddata", kick);
     };
   }, []);
 
   return (
-    <div className={cn("overflow-hidden bg-[#070b14]", className)} aria-hidden>
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover brightness-110 contrast-110"
-        autoPlay
-        loop
-        playsInline
-        preload="auto"
-        poster="/brand/hero-atmosphere.jpg"
-        muted
-      >
-        <source src="/brand/blockchain-hero.mp4" type="video/mp4" />
-      </video>
-    </div>
+    <div
+      ref={hostRef}
+      className={cn("overflow-hidden bg-[#070b14]", className)}
+      aria-hidden
+      dangerouslySetInnerHTML={{
+        __html: `
+<video
+  class="absolute inset-0 h-full w-full object-cover brightness-110 contrast-110"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+  poster="/brand/hero-atmosphere.jpg"
+>
+  <source src="/brand/blockchain-hero.mp4" type="video/mp4" />
+</video>`,
+      }}
+    />
   );
 }
