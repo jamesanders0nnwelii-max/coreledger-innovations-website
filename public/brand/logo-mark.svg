@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="CoreLedger Innovations">
+  <path d="M32 4L54.5167 17V43L32 56L9.48334 43V17L32 4Z" stroke="#2DD4BF" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M32 14L45.8564 22V38L32 46L18.1436 38V22L32 14Z" stroke="#2DD4BF" stroke-width="2" opacity="0.55" stroke-linejoin="round"/>
+  <rect x="28" y="26" width="16" height="18" rx="1.5" fill="#0B1220" stroke="#94A3B8" stroke-width="1.5"/>
+  <path d="M32 31H40M32 35.5H40M32 40H37.5" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
