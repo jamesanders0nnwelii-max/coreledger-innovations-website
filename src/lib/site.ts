@@ -9,6 +9,44 @@ export const site = {
   responseTime: "Within 1 business day",
 } as const;
 
+export const socialLinks = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/coreledger-innovations",
+    icon: "linkedin",
+  },
+  {
+    label: "Twitter",
+    href: "https://twitter.com/coreledger",
+    icon: "twitter",
+  },
+  {
+    label: "Youtube",
+    href: "https://www.youtube.com/@coreledgerinnovations",
+    icon: "youtube",
+  },
+  {
+    label: "Discord",
+    href: "https://discord.gg/coreledger",
+    icon: "discord",
+  },
+  {
+    label: "Github",
+    href: "https://github.com/jamesanders0nnwelii-max/coreledger-innovations-website",
+    icon: "github",
+  },
+  {
+    label: "Email",
+    href: "mailto:hello@coreledger-innovations.com",
+    icon: "email",
+  },
+  {
+    label: "Newsletter",
+    href: "/contact",
+    icon: "newsletter",
+  },
+] as const;
+
 export const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
