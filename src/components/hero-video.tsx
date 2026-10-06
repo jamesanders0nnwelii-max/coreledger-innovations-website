@@ -21,13 +21,8 @@ export function HeroVideo({ className }: Props) {
     const video = host.querySelector("video");
     if (!video) return;
 
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
     const kick = () => {
-      if (motionQuery.matches) {
-        video.pause();
-        return;
-      }
+      // Always keep the muted background loop running; marketing hero depends on it.
       video.defaultMuted = true;
       video.muted = true;
       video.playsInline = true;
@@ -37,7 +32,7 @@ export function HeroVideo({ className }: Props) {
     kick();
 
     const onPause = () => {
-      if (!motionQuery.matches && video.paused) {
+      if (video.paused) {
         window.setTimeout(kick, 40);
       }
     };
