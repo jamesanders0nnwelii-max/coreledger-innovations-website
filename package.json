@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1 --port 43123",
     "build": "next build",
-    "start": "next start --hostname 127.0.0.1 --port 43123",
-    "lint": "eslint"
+    "start": "next start --hostname 0.0.0.0 --port ${PORT:-43123}",
+    "lint": "eslint",
+    "build:hostinger-static": "node scripts/build-hostinger-static.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

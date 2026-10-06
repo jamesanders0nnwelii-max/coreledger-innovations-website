@@ -4,10 +4,11 @@ Company website for **CoreLedger Innovations** — a U.S.-based software company
 
 ## Features
 
-- Marketing site: Home, Services, Work, Approach, About, Contact
-- Brand assets and generated logo mark
+- Marketing site: Home, Services, Work, Approach, About, Contact, Careers
+- Brand assets and blockchain video background
 - Case studies for **Aether Protocol** and **Orbit** (in development)
-- Contact form that prepares a mailto draft to `hello@coreledger-innovations.com`
+- Careers roles with application form → `career@coreledger-innovations.com`
+- Contact form → `hello@coreledger-innovations.com`
 
 ## Stack
 
@@ -19,7 +20,7 @@ Company website for **CoreLedger Innovations** — a U.S.-based software company
 
 ```bash
 npm install
-npm run dev -- --hostname 127.0.0.1 --port 43123
+npm run dev
 ```
 
 Open [http://127.0.0.1:43123](http://127.0.0.1:43123).
@@ -29,11 +30,17 @@ Open [http://127.0.0.1:43123](http://127.0.0.1:43123).
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Start the development server |
-| `npm run build` | Create a production build |
+| `npm run build` | Create a production build (Node / Hostinger Web Apps) |
 | `npm run start` | Serve the production build |
+| `npm run build:hostinger-static` | Build static files for Hostinger File Manager / FTP |
 | `npm run lint` | Run ESLint |
+
+## Deploy to Hostinger
+
+See **[HOSTINGER.md](./HOSTINGER.md)** for step-by-step Node.js Web Apps and static FTP upload instructions.
 
 ## Contact
 
-- Email: hello@coreledger-innovations.com
+- General: hello@coreledger-innovations.com
+- Careers: career@coreledger-innovations.com
 - Region: United States · Remote

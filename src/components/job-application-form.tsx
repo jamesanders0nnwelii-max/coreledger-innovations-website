@@ -56,6 +56,37 @@ export function JobApplicationForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+
+      // Static Hostinger deploys have no API — fall back to mailto draft.
+      if (response.status === 404) {
+        const subject = encodeURIComponent(
+          `Application: ${roleTitle} — ${employmentType} — Aether Protocol`,
+        );
+        const body = encodeURIComponent(
+          [
+            `Role: ${roleTitle}`,
+            `Employment type: ${employmentType}`,
+            `Name: ${payload.name}`,
+            `Email: ${payload.email}`,
+            payload.links ? `Links: ${payload.links}` : null,
+            payload.resumeUrl ? `Resume: ${payload.resumeUrl}` : null,
+            "",
+            "Experience / note:",
+            payload.experience,
+          ]
+            .filter(Boolean)
+            .join("\n"),
+        );
+        window.location.href = `mailto:${site.careersEmail}?subject=${subject}&body=${body}`;
+        setStatus("success");
+        setMessage(
+          `Application draft opened for ${site.careersEmail}. Send the email to complete your application.`,
+        );
+        form.reset();
+        setEmploymentType(employmentTypes[0] ?? "Full-time");
+        return;
+      }
+
       const result = (await response.json()) as {
         ok?: boolean;
         error?: string;
@@ -76,7 +107,6 @@ export function JobApplicationForm({
       form.reset();
       setEmploymentType(employmentTypes[0] ?? "Full-time");
 
-      // Open a prefilled mail draft so the hiring inbox also receives the application.
       if (result.mailto) {
         window.setTimeout(() => {
           window.location.href = result.mailto!;
