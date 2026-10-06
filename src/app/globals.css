@@ -183,4 +183,8 @@
       opacity: 0.35;
     }
   }
+
+  .role-title-ink {
+    -webkit-text-fill-color: transparent;
+  }
 }
