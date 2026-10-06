@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { ButtonLink } from "@/components/button-link";
 import { FadeIn } from "@/components/motion";
+import { JobApplicationForm } from "@/components/job-application-form";
 import { getJob, jobs, site } from "@/lib/site";
 
 type Props = {
@@ -28,10 +28,6 @@ export default async function JobPage({ params }: Props) {
   const { slug } = await params;
   const job = getJob(slug);
   if (!job) notFound();
-
-  const mailto = `mailto:${site.careersEmail}?subject=${encodeURIComponent(`Application: ${job.title} — Aether Protocol`)}&body=${encodeURIComponent(
-    `Hi CoreLedger team,\n\nI am applying for the ${job.title} role on Aether Protocol.\n\nPreferred employment type (Full-time / Contract):\nName:\nLinks (GitHub / LinkedIn / portfolio):\nRelevant experience:\n\nThanks,\n`,
-  )}`;
 
   return (
     <div className="section-pad py-16 sm:py-24">
@@ -84,12 +80,11 @@ export default async function JobPage({ params }: Props) {
           </div>
 
           <div className="mt-8">
-            <ButtonLink
-              href={mailto}
-              className="h-10 bg-brand px-4 text-brand-foreground hover:bg-brand/90"
-            >
-              Apply for this role
-            </ButtonLink>
+            <JobApplicationForm
+              roleSlug={job.slug}
+              roleTitle={job.title}
+              employmentTypes={job.employmentTypes}
+            />
           </div>
         </FadeIn>
 
@@ -101,10 +96,10 @@ export default async function JobPage({ params }: Props) {
             <p className="mt-4 text-mist leading-relaxed">
               This role is open as{" "}
               <span className="text-foreground">Full-time</span> or{" "}
-              <span className="text-foreground">Contract</span>. Tell us which
-              engagement model fits when you apply to{" "}
+              <span className="text-foreground">Contract</span>. Choose your
+              preferred engagement in the application form and submit to{" "}
               <a
-                href={mailto}
+                href={`mailto:${site.careersEmail}`}
                 className="text-foreground underline decoration-brand/50 underline-offset-4 hover:text-brand"
               >
                 {site.careersEmail}
@@ -167,21 +162,10 @@ export default async function JobPage({ params }: Props) {
               Ready to apply?
             </h2>
             <p className="mt-3 text-sm text-mist">
-              Email{" "}
-              <a href={mailto} className="text-foreground hover:text-brand">
-                {site.careersEmail}
-              </a>{" "}
-              with your resume, preferred employment type (Full-time or
-              Contract), and a short note on your Aether-relevant experience.
+              Use <span className="text-foreground">Apply for this role</span>{" "}
+              above to open the application form, edit your details, and submit
+              to {site.careersEmail}.
             </p>
-            <div className="mt-5">
-              <ButtonLink
-                href={mailto}
-                className="h-10 bg-brand px-4 text-brand-foreground hover:bg-brand/90"
-              >
-                Apply via email
-              </ButtonLink>
-            </div>
           </section>
         </FadeIn>
       </div>
