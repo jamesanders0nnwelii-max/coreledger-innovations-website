@@ -79,6 +79,18 @@ Attach your domain in hPanel and wait for DNS if needed.
 - [ ] Contact email works
 - [ ] SSL is enabled in Hostinger (HTTPS)
 
+## If deployment fails
+1. Open **View details** / expand **Build logs**
+2. Confirm settings:
+   - Framework: Next.js
+   - Branch: `main`
+   - Node: 20.x or 22.x
+   - Root directory: `./`
+   - Build command: `npm run build` (or default Next.js)
+   - Start command: `npm run start` (or default Next.js)
+3. Redeploy after pulling the latest `main` commit
+4. Paste the red error lines here if it still fails
+
 ## Support emails
 - General: `hello@coreledger-innovations.com`
 - Careers: `career@coreledger-innovations.com`
