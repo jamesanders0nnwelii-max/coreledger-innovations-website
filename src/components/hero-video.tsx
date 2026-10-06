@@ -20,6 +20,7 @@ export function HeroVideo({ className }: Props) {
 
   return (
     <div className={className} aria-hidden>
+      {/* Static fallback / poster while video loads */}
       <Image
         src="/brand/hero-atmosphere.jpg"
         alt=""
@@ -30,12 +31,12 @@ export function HeroVideo({ className }: Props) {
       />
       {!reduceMotion ? (
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full scale-105 object-cover"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/brand/hero-atmosphere.jpg"
         >
           <source src="/brand/blockchain-hero.mp4" type="video/mp4" />
