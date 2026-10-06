@@ -41,6 +41,7 @@ export const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
   { href: "/approach", label: "Approach" },
+  { href: "/careers", label: "Careers" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -164,3 +165,114 @@ export const faqs = [
     a: "Production readiness includes monitoring, runbooks, deployment context, and an explicit support plan so the system can be operated and improved safely.",
   },
 ] as const;
+
+export const careersProject = {
+  name: "Aether Protocol",
+  summary:
+    "Aether Protocol is CoreLedger’s DeFi money-market MVP: an EVM collateralized lending reference with a Hub risk engine, AeToken markets, interest accrual, liquidation, oracle pricing, governance, and AETH incentives. The team is hardening the path from reference implementation toward production-ready protocol and supporting services.",
+  focus: [
+    "Hub market registry, collateral factors, borrow caps, and pause controls",
+    "AeToken markets for deposits, interest accrual, and liquidations",
+    "Oracle assumptions, governance authority, and AETH incentive flows",
+    "Backend services for indexing, APIs, and operational visibility",
+  ],
+} as const;
+
+export const jobs = [
+  {
+    slug: "solidity-engineer",
+    title: "Solidity Engineer",
+    team: "Aether Protocol",
+    location: "United States · Remote",
+    type: "Full-time",
+    summary:
+      "Design and implement core money-market contracts for Aether Protocol—Hub, AeToken markets, interest models, liquidation paths, and audit-ready test coverage.",
+    about:
+      "You will own Solidity delivery for Aether’s EVM money-market reference and help move it toward production standards. The work spans market registry logic, collateral and borrow accounting, rate models, oracle interfaces, and incentive distribution in AETH.",
+    responsibilities: [
+      "Implement and refine Hub, AeToken, interest-rate, liquidation, and governance-related contracts",
+      "Encode protocol invariants around borrow caps, account health, and economically sound liquidations",
+      "Write Foundry-oriented unit, fuzz, and invariant tests for adversarial and edge-case behavior",
+      "Prepare clean interfaces, upgrade/authority patterns, and documentation for security review",
+      "Identify and reject unsafe patterns from the reference MVP before they reach production paths",
+    ],
+    requirements: [
+      "Strong Solidity and EVM experience shipping or hardening DeFi protocols",
+      "Deep familiarity with money markets, collateral factors, oracles, and liquidation mechanics",
+      "Comfort with Foundry (or equivalent) testing, gas-aware design, and audit handoff",
+      "Ability to reason about economic and security trade-offs before writing code",
+      "Clear written communication for design notes and review comments",
+    ],
+    niceToHave: [
+      "Experience with Compound-style architectures or similar lending protocols",
+      "Exposure to Solana program design for a future architecture mapping",
+      "Prior work preparing contracts for external security audits",
+    ],
+  },
+  {
+    slug: "technical-lead-engineer",
+    title: "Technical Lead Engineer",
+    team: "Aether Protocol",
+    location: "United States · Remote",
+    type: "Full-time",
+    summary:
+      "Lead architecture and delivery across Aether Protocol—contract boundaries, system design, security assumptions, and coordination between Solidity and backend engineering.",
+    about:
+      "You will be the technical owner who keeps protocol design, implementation, and production readiness connected. Aether needs a lead who can map Hub/AeToken/oracle/governance boundaries, guide the team through failure modes, and sequence work from reference MVP to a secure production outcome.",
+    responsibilities: [
+      "Own end-to-end technical direction for Aether Protocol across contracts, services, and integrations",
+      "Define system boundaries, trust assumptions, risk parameters, and acceptance criteria",
+      "Review Solidity and backend designs for solvency, oracle, upgrade, and operational risks",
+      "Sequence delivery into testable milestones and keep architecture decisions tied to implementation",
+      "Mentor engineers and keep communication clear with stakeholders on scope, risk, and trade-offs",
+    ],
+    requirements: [
+      "Proven technical leadership on DeFi, protocol, or high-stakes distributed systems",
+      "Hands-on depth in smart contracts and the services around them (APIs, indexing, or ops)",
+      "Ability to threat-model money-market systems and drive audit-ready engineering practices",
+      "Strong facilitation skills across design reviews, prioritization, and incident-ready planning",
+      "Experience shipping systems where correctness and operator visibility matter as much as features",
+    ],
+    niceToHave: [
+      "Prior technical lead experience on lending, liquidity, or governance protocols",
+      "Familiarity with Solana account models for Aether’s longer-term architecture direction",
+      "Background coordinating external auditors and production launch readiness",
+    ],
+  },
+  {
+    slug: "backend-engineer",
+    title: "Backend Engineer",
+    team: "Aether Protocol",
+    location: "United States · Remote",
+    type: "Full-time",
+    summary:
+      "Build the off-chain systems around Aether Protocol—event indexing, APIs, monitoring hooks, and reliable data paths that keep protocol state visible and operable.",
+    about:
+      "Aether’s contracts need a production-minded backend layer: indexing market events, exposing application APIs, reconciling chain state after reorgs or RPC failures, and giving operators clear visibility into protocol health.",
+    responsibilities: [
+      "Design and implement indexing and API services for Hub, AeToken, liquidation, and incentive events",
+      "Integrate privileged oracle and operational data flows with staleness and failure handling",
+      "Build monitoring, alerting, and reconciliation paths for RPC outages and missed events",
+      "Partner with Solidity engineers so contract events and off-chain consumers stay aligned",
+      "Document runbooks and deployment context for operating Aether-related services safely",
+    ],
+    requirements: [
+      "Strong backend experience with TypeScript/Node.js or equivalent service stacks",
+      "Experience with blockchain indexing, RPC providers, or event-driven data pipelines",
+      "Comfort designing for failure: retries, idempotency, stale reads, and partial outages",
+      "Ability to model APIs around on-chain state and make pending/confirmed behavior explicit",
+      "Clear collaboration habits with protocol and product engineers",
+    ],
+    niceToHave: [
+      "Experience supporting DeFi dashboards, keepers, or liquidator infrastructure",
+      "Familiarity with Postgres, queues, and observability tooling in production",
+      "Prior work on multi-chain or L2 indexing systems",
+    ],
+  },
+] as const;
+
+export type JobSlug = (typeof jobs)[number]["slug"];
+
+export function getJob(slug: string) {
+  return jobs.find((job) => job.slug === slug);
+}

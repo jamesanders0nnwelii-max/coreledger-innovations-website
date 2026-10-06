@@ -17,11 +17,28 @@ export function ButtonLink({
   variant = "default",
   size = "default",
 }: Props) {
+  const classes = cn(buttonVariants({ variant, size }), className);
+  const external =
+    href.startsWith("http") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:");
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        className={classes}
+        {...(href.startsWith("http")
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className={cn(buttonVariants({ variant, size }), className)}
-    >
+    <Link href={href} className={classes}>
       {children}
     </Link>
   );
