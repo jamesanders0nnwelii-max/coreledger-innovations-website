@@ -187,4 +187,31 @@
   .role-title-ink {
     -webkit-text-fill-color: transparent;
   }
+
+  .role-title-flow {
+    display: inline-block;
+    background-image: linear-gradient(
+      100deg,
+      #e2e8f0 0%,
+      #ffffff 28%,
+      #2dd4bf 50%,
+      #ffffff 72%,
+      #e2e8f0 100%
+    );
+    background-size: 220% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: role-title-flow 5s linear infinite;
+  }
+
+  @keyframes role-title-flow {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: -100% 50%;
+    }
+  }
 }
