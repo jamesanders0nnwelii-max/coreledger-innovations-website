@@ -29,7 +29,7 @@ export default async function JobPage({ params }: Props) {
   const job = getJob(slug);
   if (!job) notFound();
 
-  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(`Application: ${job.title} — Aether Protocol`)}&body=${encodeURIComponent(
+  const mailto = `mailto:${site.careersEmail}?subject=${encodeURIComponent(`Application: ${job.title} — Aether Protocol`)}&body=${encodeURIComponent(
     `Hi CoreLedger team,\n\nI am applying for the ${job.title} role on Aether Protocol.\n\nName:\nLinks (GitHub / LinkedIn / portfolio):\nRelevant experience:\n\nThanks,\n`,
   )}`;
 

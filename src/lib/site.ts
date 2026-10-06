@@ -5,6 +5,7 @@ export const site = {
   description:
     "U.S.-based software company designing and building DeFi protocols, smart contracts, and the applications around them.",
   email: "hello@coreledger-innovations.com",
+  careersEmail: "career@coreledger-innovations.com",
   region: "United States · Remote",
   responseTime: "Within 1 business day",
 } as const;

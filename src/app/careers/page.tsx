@@ -92,16 +92,16 @@ export default function CareersPage() {
             Send your resume, relevant protocol or backend work, and a short note
             on why Aether fits your background to{" "}
             <a
-              href={`mailto:${site.email}?subject=${encodeURIComponent("Aether Protocol career inquiry")}`}
+              href={`mailto:${site.careersEmail}?subject=${encodeURIComponent("Aether Protocol career inquiry")}`}
               className="text-foreground underline decoration-brand/50 underline-offset-4 hover:text-brand"
             >
-              {site.email}
+              {site.careersEmail}
             </a>
             . We reply within one business day.
           </p>
           <div className="mt-6">
             <ButtonLink
-              href={`mailto:${site.email}?subject=${encodeURIComponent("Aether Protocol career inquiry")}`}
+              href={`mailto:${site.careersEmail}?subject=${encodeURIComponent("Aether Protocol career inquiry")}`}
               className="h-10 bg-brand px-4 text-brand-foreground hover:bg-brand/90"
             >
               Email careers
