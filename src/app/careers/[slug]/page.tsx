@@ -123,7 +123,7 @@ export default async function JobPage({ params }: Props) {
             <p className="mt-3 text-sm text-mist">
               Email{" "}
               <a href={mailto} className="text-foreground hover:text-brand">
-                {site.email}
+                {site.careersEmail}
               </a>{" "}
               with your resume and a short note on your Aether-relevant experience.
             </p>
