@@ -11,13 +11,12 @@ import { projects, services, site } from "@/lib/site";
 export default function HomePage() {
   return (
     <>
-      <section className="relative isolate min-h-[calc(100vh-4rem)] overflow-hidden">
-        <HeroVideo className="absolute inset-0" />
-        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-ink/80 via-ink/55 to-ink/25" />
-        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-ink/90 via-ink/20 to-ink/30" />
-        <div className="pointer-events-none absolute inset-0 z-[2] grid-backdrop opacity-20" />
+      <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden">
+        <HeroVideo className="absolute inset-0 z-0" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-ink/70 via-ink/35 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-ink/80 via-transparent to-ink/20" />
 
-        <div className="section-width section-pad relative z-[3] flex min-h-[calc(100vh-4rem)] flex-col justify-center py-20">
+        <div className="section-width section-pad relative z-[2] flex min-h-[calc(100vh-4rem)] flex-col justify-center py-20">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
