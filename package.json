@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1 --port 43123",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "node scripts/hostinger-start.cjs",
     "lint": "eslint",
     "build:hostinger-static": "node scripts/build-hostinger-static.mjs"
