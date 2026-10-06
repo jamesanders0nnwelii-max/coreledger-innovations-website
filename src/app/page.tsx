@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { BlockchainVideoSection } from "@/components/blockchain-video-section";
 import { ButtonLink } from "@/components/button-link";
 import { HeroVideo } from "@/components/hero-video";
 import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
@@ -14,9 +13,9 @@ export default function HomePage() {
     <>
       <section className="relative isolate min-h-[calc(100vh-4rem)] overflow-hidden">
         <HeroVideo className="absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/88 to-ink/55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/45" />
-        <div className="absolute inset-0 grid-backdrop opacity-35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/25 to-ink/40" />
+        <div className="absolute inset-0 grid-backdrop opacity-25" />
 
         <div className="section-width section-pad relative flex min-h-[calc(100vh-4rem)] flex-col justify-center py-20">
           <motion.div
@@ -73,8 +72,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
-
-      <BlockchainVideoSection />
 
       <section className="section-pad border-t border-line py-20 sm:py-24">
         <div className="section-width">
