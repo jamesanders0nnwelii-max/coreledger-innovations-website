@@ -16,6 +16,11 @@ export const socialLinks = [
     icon: "linkedin",
   },
   {
+    label: "Twitter",
+    href: "https://twitter.com/coreledger",
+    icon: "twitter",
+  },
+  {
     label: "Discord",
     href: "https://discord.gg/coreledger",
     icon: "discord",
