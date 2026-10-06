@@ -62,7 +62,9 @@ export default function CareersPage() {
                     <div className="max-w-2xl">
                       <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.16em]">
                         <span className="text-brand">{job.team}</span>
-                        <span className="text-mist">{job.type}</span>
+                        <span className="text-mist">
+                          {job.employmentTypes.join(" · ")}
+                        </span>
                         <span className="text-mist">{job.location}</span>
                       </div>
                       <h3 className="mt-3 font-heading text-2xl font-semibold tracking-tight group-hover:text-brand">
@@ -70,6 +72,10 @@ export default function CareersPage() {
                       </h3>
                       <p className="mt-3 text-sm leading-relaxed text-mist">
                         {job.summary}
+                      </p>
+                      <p className="mt-3 text-sm text-slate-300">
+                        Full-time {job.compensation.fullTime} · Contract{" "}
+                        {job.compensation.contract}/hr
                       </p>
                     </div>
                     <span className="inline-flex items-center gap-2 text-sm text-foreground">

@@ -185,7 +185,13 @@ export const jobs = [
     title: "Solidity Engineer",
     team: "Aether Protocol",
     location: "United States · Remote",
-    type: "Full-time",
+    employmentTypes: ["Full-time", "Contract"] as const,
+    compensation: {
+      fullTime: "$200K – $250K",
+      fullTimeNote: "Annual base",
+      contract: "$100 – $120",
+      contractNote: "Hourly",
+    },
     summary:
       "Design and implement core money-market contracts for Aether Protocol—Hub, AeToken markets, interest models, liquidation paths, and audit-ready test coverage.",
     about:
@@ -215,7 +221,13 @@ export const jobs = [
     title: "Technical Lead Engineer",
     team: "Aether Protocol",
     location: "United States · Remote",
-    type: "Full-time",
+    employmentTypes: ["Full-time", "Contract"] as const,
+    compensation: {
+      fullTime: "$250K – $300K",
+      fullTimeNote: "Annual base",
+      contract: "$120 – $140",
+      contractNote: "Hourly",
+    },
     summary:
       "Lead architecture and delivery across Aether Protocol—contract boundaries, system design, security assumptions, and coordination between Solidity and backend engineering.",
     about:
@@ -245,7 +257,13 @@ export const jobs = [
     title: "Backend Engineer",
     team: "Aether Protocol",
     location: "United States · Remote",
-    type: "Full-time",
+    employmentTypes: ["Full-time", "Contract"] as const,
+    compensation: {
+      fullTime: "$180K – $230K",
+      fullTimeNote: "Annual base",
+      contract: "$80 – $110",
+      contractNote: "Hourly",
+    },
     summary:
       "Build the off-chain systems around Aether Protocol—event indexing, APIs, monitoring hooks, and reliable data paths that keep protocol state visible and operable.",
     about:

@@ -30,7 +30,7 @@ export default async function JobPage({ params }: Props) {
   if (!job) notFound();
 
   const mailto = `mailto:${site.careersEmail}?subject=${encodeURIComponent(`Application: ${job.title} — Aether Protocol`)}&body=${encodeURIComponent(
-    `Hi CoreLedger team,\n\nI am applying for the ${job.title} role on Aether Protocol.\n\nName:\nLinks (GitHub / LinkedIn / portfolio):\nRelevant experience:\n\nThanks,\n`,
+    `Hi CoreLedger team,\n\nI am applying for the ${job.title} role on Aether Protocol.\n\nPreferred employment type (Full-time / Contract):\nName:\nLinks (GitHub / LinkedIn / portfolio):\nRelevant experience:\n\nThanks,\n`,
   )}`;
 
   return (
@@ -47,7 +47,9 @@ export default async function JobPage({ params }: Props) {
 
           <div className="mt-8 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.16em]">
             <span className="text-brand">{job.team}</span>
-            <span className="text-mist">{job.type}</span>
+            <span className="text-mist">
+              {job.employmentTypes.join(" · ")}
+            </span>
             <span className="text-mist">{job.location}</span>
           </div>
 
@@ -55,6 +57,31 @@ export default async function JobPage({ params }: Props) {
             {job.title}
           </h1>
           <p className="mt-5 text-lg text-mist">{job.summary}</p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="border border-line bg-ink/40 p-5 backdrop-blur-sm">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
+                Full-time
+              </p>
+              <p className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground">
+                {job.compensation.fullTime}
+              </p>
+              <p className="mt-1 text-sm text-mist">
+                {job.compensation.fullTimeNote}
+              </p>
+            </div>
+            <div className="border border-line bg-ink/40 p-5 backdrop-blur-sm">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
+                Contract
+              </p>
+              <p className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground">
+                {job.compensation.contract}
+              </p>
+              <p className="mt-1 text-sm text-mist">
+                {job.compensation.contractNote}
+              </p>
+            </div>
+          </div>
 
           <div className="mt-8">
             <ButtonLink
@@ -67,6 +94,25 @@ export default async function JobPage({ params }: Props) {
         </FadeIn>
 
         <FadeIn delay={0.05} className="mt-14 space-y-12">
+          <section>
+            <h2 className="font-heading text-2xl font-semibold tracking-tight">
+              Employment type
+            </h2>
+            <p className="mt-4 text-mist leading-relaxed">
+              This role is open as{" "}
+              <span className="text-foreground">Full-time</span> or{" "}
+              <span className="text-foreground">Contract</span>. Tell us which
+              engagement model fits when you apply to{" "}
+              <a
+                href={mailto}
+                className="text-foreground underline decoration-brand/50 underline-offset-4 hover:text-brand"
+              >
+                {site.careersEmail}
+              </a>
+              .
+            </p>
+          </section>
+
           <section>
             <h2 className="font-heading text-2xl font-semibold tracking-tight">
               About the role
@@ -125,7 +171,8 @@ export default async function JobPage({ params }: Props) {
               <a href={mailto} className="text-foreground hover:text-brand">
                 {site.careersEmail}
               </a>{" "}
-              with your resume and a short note on your Aether-relevant experience.
+              with your resume, preferred employment type (Full-time or
+              Contract), and a short note on your Aether-relevant experience.
             </p>
             <div className="mt-5">
               <ButtonLink
