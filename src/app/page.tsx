@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { AnimatedHeroPhrase } from "@/components/animated-hero-phrase";
 import { ButtonLink } from "@/components/button-link";
 import { HeroVideo } from "@/components/hero-video";
 import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
@@ -42,15 +43,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            <h1 className="display text-4xl font-bold leading-[1.08] text-white sm:text-5xl lg:text-6xl">
+            <h1 className="display text-4xl font-bold leading-[1.15] text-white sm:text-5xl lg:text-6xl">
               DeFi protocols engineered for real{" "}
-              <span className="relative inline-block text-brand">
-                production risk
-                <span
-                  aria-hidden
-                  className="absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-brand via-brand/70 to-transparent sm:-bottom-1.5"
-                />
-              </span>
+              <AnimatedHeroPhrase />
               .
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300 sm:text-xl">
