@@ -105,11 +105,8 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgb(45 212 191 / 12%), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 0%, rgb(56 189 248 / 6%), transparent);
-    background-attachment: fixed;
+    @apply bg-transparent text-foreground antialiased;
+    background-image: none;
   }
 
   ::selection {

@@ -50,7 +50,7 @@ function SocialIcon({
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-line bg-panel/60">
+    <footer className="mt-auto border-t border-line bg-ink/55 backdrop-blur-xl">
       <div className="section-width section-pad grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-4">
           <Link href="/" className="inline-flex items-center gap-2.5">

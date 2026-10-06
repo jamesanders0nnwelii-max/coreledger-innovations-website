@@ -14,7 +14,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-line/80 bg-ink/55 backdrop-blur-xl">
       <div className="section-width section-pad flex h-16 items-center justify-between gap-4">
         <Link
           href="/"
@@ -77,7 +77,7 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <div className="border-t border-line bg-panel md:hidden">
+        <div className="border-t border-line bg-ink/90 backdrop-blur-xl md:hidden">
           <nav className="section-pad flex flex-col gap-1 py-4">
             {navLinks.map((link) => (
               <Link
