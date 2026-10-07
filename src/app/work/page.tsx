@@ -6,7 +6,7 @@ import { projects } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected DeFi and application work from CoreLedger Innovations, including Aether Protocol and Orbit.",
+    "Selected DeFi and application work from CoreLedger Innovations, including Aether Protocol and Quay.",
 };
 
 export default function WorkPage() {
@@ -21,7 +21,7 @@ export default function WorkPage() {
             Protocol and product work in progress.
           </h1>
           <p className="mt-5 text-lg text-mist">
-            Aether Protocol is our DeFi money-market reference. Orbit is an
+            Aether Protocol is our DeFi money-market reference. Quay is an
             application currently in development.
           </p>
         </FadeIn>

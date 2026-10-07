@@ -6,7 +6,7 @@ Company website for **CoreLedger Innovations** — a U.S.-based software company
 
 - Marketing site: Home, Services, Work, Approach, About, Contact, Careers
 - Brand assets and blockchain video background
-- Case studies for **Aether Protocol** and **Orbit** (in development)
+- Case studies for **Aether Protocol** and **Quay** (in development)
 - Careers roles with application form → `career@coreledger-innovations.com`
 - Contact form → `hello@coreledger-innovations.com`
 

@@ -81,7 +81,7 @@ export default function AboutPage() {
           <p className="mt-4 text-mist">
             Aether Protocol is our collateralized lending-market reference—Hub
             risk controls, AeToken markets, interest, liquidation, and AETH
-            incentives. Orbit is our next application, currently in development
+            incentives. Quay is our next application, currently in development
             and coming online after the next product upgrade.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

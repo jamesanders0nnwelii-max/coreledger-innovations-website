@@ -23,12 +23,12 @@ export const socialLinks = [
   },
   {
     label: "Discord",
-    href: "https://discord.gg/coreledger",
+    href: "https://discord.gg/yjxGdevayT",
     icon: "discord",
   },
   {
     label: "Github",
-    href: "https://github.com/jamesanders0nnwelii-max/coreledger-innovations-website",
+    href: "https://github.com/CoreLedger-Innovations",
     icon: "github",
   },
   {
@@ -108,14 +108,14 @@ export const projects = [
     ],
   },
   {
-    slug: "orbit",
-    name: "Orbit",
+    slug: "quay",
+    name: "Quay",
     status: "In development",
     category: "Application",
     summary:
       "A new application currently in active development. Full product details will be published as the build advances.",
     detail:
-      "Orbit is CoreLedger’s next product surface. The public case study will expand once the application reaches a shareable milestone. Until then, it appears here as an in-progress engagement focused on application-layer delivery alongside our DeFi protocol work.",
+      "Quay is CoreLedger’s next product surface. The public case study will expand once the application reaches a shareable milestone. Until then, it appears here as an in-progress engagement focused on application-layer delivery alongside our DeFi protocol work.",
     stack: ["Application", "Product engineering", "Upcoming release"],
     outcomes: [
       "Product architecture and delivery underway",
